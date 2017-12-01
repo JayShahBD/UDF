@@ -1,0 +1,6 @@
+User Defined Functions in hive are used to plug in our own logic in terms of code into hive when we are not able to get the desired result from the hive's built in functions. 
+There are 3 kinds of UDFs in Hive:
+	1. Regular UDF
+	2. User Defined Aggregate Function (UDAF)
+	3. User Defined Tabular Function (UDTF)
+1. Regular UDF: UDFs works on a single row in a table and produces a single row as output. Its one to one relationship between input and output of a function.
