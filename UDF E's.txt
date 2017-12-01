@@ -1,0 +1,18 @@
+User Defined Functions(UDF) in hive are used to plug in our own logic in terms of code into hive when we are not able to get the desired result from the hive's built in functions. 
+There are 3 kinds of UDFs in Hive:
+	1. Regular UDF
+	2. User Defined Aggregate Function (UDAF)
+	3. User Defined Tabular Function (UDTF)
+1. Regular UDF: UDFs works on a single row in a table and produces a single row as output. Its one to one relationship between input and output of a function.
+		eg. Hive built in TRIM() function
+		eg. If we were to find the maximum runs scored out of 4 innings by a player. We have to extand a base Class UDF and then we would have to overload a method, "evaluate", inside our class.
+			We export the jar file to the path where Hive is running. From there we add the exported jar file to hive classpath. In order to apply the logic using our UDF, we need to create a 
+			temporary function for the exported jar file.
+2. UDAF: User Defined Aggregate Function works on more than one row and gives single row as output. 
+		eg. Hive built in MAX() or COUNT() functions.
+		eg. Lets say you have 3 columns containing Name, ID, and Marks and 10 records. If we have to find the person with the maximum marks then our query needs to check 10 rows to find the max.
+			but we will get only one output. 
+		eg. Finding mean marks of a group of students is also a good example, as it will query through all the student records but will only output one result.
+3. UDTF: User Defined Tabular Function works on one row as input and returns multiple rows as output. 
+		eg. Hive built in EXPLODE() function.
+		eg. EXPLODING an array of user IDs 5,12,25,62,42 gives us five different rows as output.
